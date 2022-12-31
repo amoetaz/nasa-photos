@@ -2,23 +2,21 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/articlesFragment">
+    app:startDestination="@id/photosFragment">
 
     <fragment
-        android:id="@+id/articleDetailFragment"
-        android:name="com.nasa.detail.ArticleDetailFragment"
-        android:label="ArticleDetailFragment" >
+        android:id="@+id/detailFragment"
+        android:name="com.nasa.detail.DetailFragment"
+        android:label="DetailFragment">
         <deepLink
-            app:uri="android-app://com.redditnews.articles/articlesFragment?article={article}" />
+            app:uri="android-app://com.nasa.photos/photosFragment?photo={photo}" />
 
     </fragment>
     <fragment
-        android:id="@+id/articlesFragment"
-        android:name="com.nasa.photos.ArticlesFragment"
-        android:label="ArticlesFragment" >
+        android:id="@+id/photosFragment"
+        android:name="com.nasa.photos.PhotosFragment"
+        android:label="PhotosFragment">
 
-        <action
-            android:id="@+id/action_articlesFragment_to_articleDetailFragment"
-            app:destination="@id/articleDetailFragment" />
+
     </fragment>
 </navigation>

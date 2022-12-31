@@ -12,15 +12,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ArticlesFragment">
+        tools:context=".PhotosFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_article"
+            tools:listitem="@layout/item_photo"
             android:id="@+id/rv_list"
             android:orientation="vertical"
-            articles_list="@{viewModel.photosList}"
+            photos_list="@{viewModel.photosList}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_width="match_parent"
             android:layout_height="0dp"/>

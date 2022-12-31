@@ -1,25 +1,26 @@
 package com.nasa.photos
 
-
+import android.util.Log
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
 import com.nasa.domain.utils.Resource
-import com.nasa.photos.databinding.FragmentArticlesBinding
-
-
+import com.nasa.photos.databinding.FragmentPhotosBinding
 import com.nasa.presentation.base.BaseFragment
 import com.nasa.presentation.extensions.onLastItemReached
-
-
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class ArticlesFragment : BaseFragment<PhotosViewModel , FragmentArticlesBinding>(R.layout.fragment_articles) {
-    override val binding: FragmentArticlesBinding
-        by viewBinding(FragmentArticlesBinding::bind)
+class PhotosFragment :
+    BaseFragment<PhotosViewModel, FragmentPhotosBinding>(R.layout.fragment_photos) {
+    override val binding: FragmentPhotosBinding
+            by viewBinding(FragmentPhotosBinding::bind)
     override val fragmentViewModel: PhotosViewModel
-        by viewModels()
+            by viewModels()
 
-    private val articleAdapter by lazy { ArticlesAdapter() }
+    private val articleAdapter by lazy { PhotosAdapter() }
     override fun onCreated() {
         binding.apply {
             lifecycleOwner = viewLifecycleOwner
@@ -33,7 +34,7 @@ class ArticlesFragment : BaseFragment<PhotosViewModel , FragmentArticlesBinding>
 
     private fun listScrollListener() {
         binding.rvList.onLastItemReached {
-            if (fragmentViewModel.otherPhotosResponse.value !is Resource.Loading){
+            if (fragmentViewModel.otherPhotosResponse.value !is Resource.Loading) {
                 fragmentViewModel.getOtherPhotos()
             }
         }
@@ -41,11 +42,11 @@ class ArticlesFragment : BaseFragment<PhotosViewModel , FragmentArticlesBinding>
 
     private fun articleAdapterClicks() {
         articleAdapter.onItemClick = {
-          /*  Log.d("sdfsdfdsfds", "articleAdapterClicks: $it")
+
             val request = NavDeepLinkRequest.Builder
-                .fromUri("android-app://com.redditnews.articles/articlesFragment?article=${Gson().toJson(it.apply {desc = desc?.replace("#" , "") })}".toUri())
+                .fromUri("android-app://com.nasa.photos/photosFragment?photo=${Gson().toJson(it)}".toUri())
                 .build()
-            findNavController().navigate(request)*/
+            findNavController().navigate(request)
 
         }
     }

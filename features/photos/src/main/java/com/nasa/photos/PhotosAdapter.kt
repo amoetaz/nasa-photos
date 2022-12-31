@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.nasa.domain.models.Photo
-import com.nasa.photos.databinding.ItemArticleBinding
+import com.nasa.photos.databinding.ItemPhotoBinding
 
 
-class ArticlesAdapter() :
-    ListAdapter<Photo, ArticlesAdapter.ArticleViewHolder>(ArticleDiffCallback) {
+class PhotosAdapter() :
+    ListAdapter<Photo, PhotosAdapter.ArticleViewHolder>(ArticleDiffCallback) {
 
     var onItemClick : (Photo)-> Unit = {}
-    inner class ArticleViewHolder(val binding: ItemArticleBinding) :
+    inner class ArticleViewHolder(val binding: ItemPhotoBinding) :
         RecyclerView.ViewHolder(binding.root)
 
     object ArticleDiffCallback : DiffUtil.ItemCallback<Photo>() {
@@ -28,7 +28,7 @@ class ArticlesAdapter() :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         return ArticleViewHolder(
-            ItemArticleBinding.inflate(
+            ItemPhotoBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
