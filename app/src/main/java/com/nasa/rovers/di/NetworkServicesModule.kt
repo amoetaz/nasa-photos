@@ -16,7 +16,7 @@ object NetworkServicesModule {
 
     @Provides
     @Singleton
-    fun provideArticlesService(retrofit: Retrofit): PhotosServices =
+    fun providePhotosService(retrofit: Retrofit): PhotosServices =
         retrofit.create(PhotosServices::class.java)
 
 }

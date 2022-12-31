@@ -10,7 +10,7 @@ interface PhotosServices {
 
     @GET("rovers/{rover}/photos")
     suspend fun getMarsPhotos(
-        @Path("rover") rover : String,
+        @Path("rover") rover: String,
         @Query("page") page: Int,
         @Query("api_key") apiKey: String,
         @Query("sol") sol: Int,

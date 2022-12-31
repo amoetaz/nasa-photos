@@ -17,7 +17,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideArticlesRepository(
+    fun providePhotosRepository(
         remoteDataSource: PhotosRemoteDataSource
     ): PhotosRepository = PhotosRepositoryImp(remoteDataSource)
 
