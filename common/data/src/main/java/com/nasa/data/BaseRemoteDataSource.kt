@@ -30,9 +30,10 @@ open class BaseRemoteDataSource @Inject constructor() {
         } catch (throwable: Throwable) {
             Log.d("moetazTag", "safeApiCall: start catch ")
             when (throwable) {
+
                 is HttpException -> {
                     Log.d("moetazTag", "safeApiCall: HttpException")
-                    return Resource.Failure(FailureStatus.API_FAIL, throwable.code(), null)
+                    return Resource.Failure(FailureStatus.API_FAIL, throwable.code() )
                 }
 
                 is UnknownHostException -> {

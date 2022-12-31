@@ -24,11 +24,11 @@ class PhotosViewModelTest {
     }
 
     @Test
-    fun `for success resourse data not null`() = runBlocking {
-        whenever(photosRepository.getPhotos(, 1, "", 1)).thenReturn(Resource.Success(emptyList()))
+    fun `first rover name is set to Curiosity`() = runBlocking {
+
         viewModel = PhotosViewModel(GetPhotosUseCase(photosRepository))
 
-        Assert.assertEquals(Resource.Loading, viewModel.photosResponse.value)
+        Assert.assertEquals("Curiosity",viewModel.roverName)
 
     }
 }

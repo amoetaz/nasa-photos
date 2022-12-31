@@ -8,8 +8,7 @@ sealed class Resource<out T> {
 
   class Failure(
       val failureStatus: FailureStatus,
-      val code: Int? = null,
-      val message: String? = null
+      val code: Int? = null
   ) : Resource<Nothing>()
 
   object Loading : Resource<Nothing>()

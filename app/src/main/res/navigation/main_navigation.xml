@@ -9,6 +9,7 @@
         android:name="com.nasa.detail.DetailFragment"
         android:label="DetailFragment">
         <deepLink
+
             app:uri="android-app://com.nasa.photos/photosFragment?photo={photo}" />
 
     </fragment>
