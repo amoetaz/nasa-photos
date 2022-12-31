@@ -1,0 +1,24 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+rootProject.name = "Nasa Rover Photos"
+include ':app'
+
+
+include ':common:data'
+include ':common:domain'
+include ':common:presentation'
+include ':features:photos'
+include ':features:detail'
+

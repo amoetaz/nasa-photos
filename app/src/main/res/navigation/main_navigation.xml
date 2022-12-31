@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/articlesFragment">
+
+    <fragment
+        android:id="@+id/articleDetailFragment"
+        android:name="com.nasa.detail.ArticleDetailFragment"
+        android:label="ArticleDetailFragment" >
+        <deepLink
+            app:uri="android-app://com.redditnews.articles/articlesFragment?article={article}" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/articlesFragment"
+        android:name="com.nasa.photos.ArticlesFragment"
+        android:label="ArticlesFragment" >
+
+        <action
+            android:id="@+id/action_articlesFragment_to_articleDetailFragment"
+            app:destination="@id/articleDetailFragment" />
+    </fragment>
+</navigation>

@@ -1,0 +1,19 @@
+buildscript {
+
+    ext {
+        hilt_version = '2.44'
+        coroutines_version = '1.4.1'
+        retrofit_version = '2.9.0'
+        http_version = '4.9.0'
+        gson_version = '2.8.6'
+        lifecycle_version = '2.4.1'
+        navigation_version = '2.5.3'
+
+    }
+}
+plugins {
+    id 'com.android.application' version '7.3.0' apply false
+    id 'com.android.library' version '7.3.0' apply false
+    id 'org.jetbrains.kotlin.android' version '1.7.10' apply false
+    id 'com.google.dagger.hilt.android' version '2.44' apply false
+}
