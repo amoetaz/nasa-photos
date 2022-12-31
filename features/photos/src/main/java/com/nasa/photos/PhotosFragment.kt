@@ -1,6 +1,9 @@
 package com.nasa.photos
 
 import android.util.Log
+import android.view.ContextMenu
+import android.view.MenuItem
+import android.view.View
 import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavDeepLinkRequest
@@ -30,6 +33,38 @@ class PhotosFragment :
         articleAdapterClicks()
         listScrollListener()
         requireActivity().title = "Mars Rover Photos"
+        registerForContextMenu(binding.ivFilter)
+        binding.ivFilter.setOnClickListener {
+            requireActivity().openContextMenu(it)
+        }
+    }
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu,
+        v: View,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menu.setHeaderTitle("Choose a Rover");
+        menu.add(0, v.id, 0, "Curiosity");
+        menu.add(0, v.id, 0, "Opportunity");
+        menu.add(0, v.id, 0, "Spirit");
+    }
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        when (item.title) {
+            "Curiosity" -> {
+                fragmentViewModel.roverName = "Curiosity"
+            }
+            "Opportunity" -> {
+                fragmentViewModel.roverName = "Opportunity"
+            }
+            else -> {
+                fragmentViewModel.roverName = "Spirit"
+            }
+        }
+        fragmentViewModel.getPhotos()
+        return true
     }
 
     private fun listScrollListener() {

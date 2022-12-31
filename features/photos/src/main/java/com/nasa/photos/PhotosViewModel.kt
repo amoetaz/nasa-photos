@@ -23,12 +23,14 @@ class PhotosViewModel @Inject constructor(private val getArticlesUseCase: GetPho
     val photosList = MutableStateFlow<ArrayList<Photo>?>(null)
     var page = 1
 
+    var roverName = "Curiosity"
     init {
         getPhotos()
     }
 
     fun getPhotos() {
-        getArticlesUseCase(page, API_KEY, 1000)
+        page = 1
+        getArticlesUseCase(roverName,page, API_KEY, 1000)
             .onEach {
                 _photosResponse.value = it
                 if (it.toData() != null)
@@ -40,7 +42,7 @@ class PhotosViewModel @Inject constructor(private val getArticlesUseCase: GetPho
 
     fun getOtherPhotos() {
         if (page != -1) {
-            getArticlesUseCase(page, API_KEY, 1000)
+            getArticlesUseCase(roverName,page, API_KEY, 1000)
                 .onEach {
                     _otherPhotosResponse.value = it
                     if (it.toData() != null){

@@ -10,10 +10,10 @@ import javax.inject.Inject
 class GetPhotosUseCase @Inject constructor(private val articlesRepository: PhotosRepository) {
 
 
-    operator fun invoke(page : Int , apiKey : String , sol : Int) = flow{
+    operator fun invoke(rover: String, page: Int, apiKey: String, sol: Int) = flow {
 
         emit(Resource.Loading)
 
-        emit(articlesRepository.getPhotos(page,apiKey,sol))
+        emit(articlesRepository.getPhotos(rover, page, apiKey, sol))
     }.flowOn(Dispatchers.IO)
 }

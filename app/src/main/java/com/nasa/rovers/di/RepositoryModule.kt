@@ -2,7 +2,7 @@ package com.nasa.rovers.di
 
 
 
-import com.nasa.data.modules.photos.remote.ArticlesRemoteDataSource
+import com.nasa.data.modules.photos.remote.PhotosRemoteDataSource
 import com.nasa.data.modules.photos.repository.PhotosRepositoryImp
 import com.nasa.domain.modules.photos.repository.PhotosRepository
 import dagger.Module
@@ -18,7 +18,7 @@ class RepositoryModule {
     @Provides
     @Singleton
     fun provideArticlesRepository(
-        remoteDataSource: ArticlesRemoteDataSource
+        remoteDataSource: PhotosRemoteDataSource
     ): PhotosRepository = PhotosRepositoryImp(remoteDataSource)
 
 }

@@ -5,5 +5,5 @@ import com.nasa.domain.utils.Resource
 
 interface PhotosRepository {
 
-    suspend fun getPhotos(page: Int, apiKey: String, sol: Int): Resource<List<Photo>?>
+    suspend fun getPhotos(rover : String ,page: Int, apiKey: String, sol: Int): Resource<List<Photo>?>
 }
